@@ -10,3 +10,5 @@ Author: Tatiana Panteleychuk
 [![Build Status](https://travis-ci.org/Aresla/frontend-project-lvl2.svg?branch=master)](https://travis-ci.org/Aresla/frontend-project-lvl2)
 
 https://asciinema.org/a/OWozySSzfNRON3tYQsQt50TSP
+
+https://asciinema.org/a/3BUmjbXjy76TrCAUDtT0U2IPT

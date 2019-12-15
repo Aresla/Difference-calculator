@@ -1,4 +1,5 @@
 import fs from 'fs';
+import yaml from 'js-yaml';
 import genDiff, { stringify } from './index';
 
 
@@ -6,7 +7,7 @@ test('should 1 be equal 1', () => {
   expect(1).toBe(1);
 });
 
-test('should read file', () => {
+test('should read and parse JSON file', () => {
   const pathToFile = './src/__fixtures__/json/after.json';
   const file = fs.readFileSync(pathToFile);
   const parsedFile = JSON.parse(file);
@@ -17,21 +18,32 @@ test('should read file', () => {
   });
 });
 
-test('should get the difference', () => {
-  const pathBefore = './src/__fixtures__/json/before.json';
-  const pathAfter = './src/__fixtures__/json/after.json';
-  const diff = genDiff(pathBefore, pathAfter);
-  expect(diff).toStrictEqual({
-    timeout: {
-      isSame: false,
-      isAdded: false,
-      isRemoved: false,
-      isChanged: true,
-      previosValue: 50,
-      newValue: 20,
-    },
+test('should read and parse yaml file', () => {
+  const pathToFile = './src/__fixtures__/yaml/after.yaml';
+  const file = fs.readFileSync(pathToFile, 'utf8');
+  const parsedFile = yaml.safeLoad(file);
+  expect(parsedFile).toStrictEqual({
+    timeout: 20,
+    verbose: true,
+    host: 'hexlet.io',
   });
 });
+
+// test('should get the difference', () => {
+//   const pathBefore = './src/__fixtures__/json/before.json';
+//   const pathAfter = './src/__fixtures__/json/after.json';
+//   const diff = genDiff(pathBefore, pathAfter, 'json');
+//   expect(diff).toStrictEqual({
+//     timeout: {
+//       isSame: false,
+//       isAdded: false,
+//       isRemoved: false,
+//       isChanged: true,
+//       beforeValue: 50,
+//       newValue: 20,
+//     },
+//   });
+// });
 
 test('should print AST', () => {
   const ast = {
@@ -40,7 +52,7 @@ test('should print AST', () => {
       isAdded: false,
       isRemoved: false,
       isChanged: true,
-      previosValue: 50,
+      beforeValue: 50,
       newValue: 20,
     },
   };
@@ -54,7 +66,22 @@ test('should print AST', () => {
 test('should print the difference', () => {
   const pathToBefore = './src/__fixtures__/json/before.json';
   const pathToAfter = './src/__fixtures__/json/after.json';
-  const result = genDiff(pathToBefore, pathToAfter);
+  const result = genDiff(pathToBefore, pathToAfter, 'json');
+  const resultString = `{
+  host: hexlet.io
++ timeout: 20
+- timeout: 50
+- proxy: 123.234.53.22
+- follow: false
++ verbose: true
+}`;
+  expect(result).toBe(resultString);
+});
+
+test('should print the difference for yaml files', () => {
+  const pathToBefore = './src/__fixtures__/yaml/before.yaml';
+  const pathToAfter = './src/__fixtures__/yaml/after.yaml';
+  const result = genDiff(pathToBefore, pathToAfter, 'yaml');
   const resultString = `{
   host: hexlet.io
 + timeout: 20

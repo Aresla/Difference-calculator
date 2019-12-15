@@ -22,7 +22,8 @@
     "testEnvironment": "node"
   },
   "dependencies": {
-    "commander": "^4.0.1"
+    "commander": "^4.0.1",
+    "js-yaml": "^3.13.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.7.4",
