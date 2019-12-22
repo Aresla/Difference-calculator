@@ -5,21 +5,19 @@ import genDiff from '../index';
 
 const run = () => {
   const program = new commander.Command();
-  let pathToFirst; let pathToSecond;
-  // let type;
+  let pathToFirst; let pathToSecond; let formatter;
   program.version('0.0.1')
-    .arguments('<pathToFirstFile> <pathToSecondFile> [type]')
+    .arguments('<pathToFirstFile> <pathToSecondFile> <formatter>')
     .description('Compares two configuration files and shows a difference.')
     .option('-f, --format [type]', 'Output format')
-    .action((first, second) => {
+    .action((first, second, format) => {
       pathToFirst = first;
       pathToSecond = second;
-      // type = t;
+      formatter = format;
     })
     .parse(process.argv);
-  const result = genDiff(pathToFirst, pathToSecond);
+  const result = genDiff(pathToFirst, pathToSecond, formatter);
   console.log(result);
-  // return result;
 };
 
 run();

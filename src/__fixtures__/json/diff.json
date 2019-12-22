@@ -1,0 +1,76 @@
+{
+  "common": {
+    "isSame": false,
+    "isAdded": false,
+    "isRemoved": false,
+    "isChanged": true,
+    "hasChildren": true,
+    "beforeValue": null,
+    "newValue": null,
+    "children": {
+      "follow": {
+        "isSame": false,
+        "isAdded": true,
+        "isRemoved": false,
+        "isChanged": false,
+        "hasChildren": true,
+        "beforeValue": null,
+        "newValue": false,
+        "children": null
+      },
+      "setting1": {
+        "isSame": true,
+        "isAdded": false,
+        "isRemoved": false,
+        "isChanged": false,
+        "hasChildren": true,
+        "beforeValue": "Value 1",
+        "newValue": "Value 1",
+        "children": null
+      },
+      "setting3": {
+        "isSame": false,
+        "isAdded": true,
+        "isRemoved": false,
+        "isChanged": false,
+        "hasChildren": false,
+        "beforeValue": null,
+        "newValue": {
+          "key": "value"
+        },
+        "children": null
+      },
+      "setting6": {
+        "isSame": false,
+        "isAdded": false,
+        "isRemoved": false,
+        "isChanged": true,
+        "hasChildren": true,
+        "beforeValue": null,
+        "newValue": null,
+        "children": {
+          "key": {
+            "isSame": true,
+            "isAdded": false,
+            "isRemoved": false,
+            "isChanged": false,
+            "hasChildren": false,
+            "beforeValue": "value",
+            "newValue": "value",
+            "children": null
+          },
+          "ops": {
+            "isSame": false,
+            "isAdded": true,
+            "isRemoved": false,
+            "isChanged": false,
+            "hasChildren": false,
+            "beforeValue": null,
+            "newValue": "vops",
+            "children": null
+          }
+        }
+      }
+    }
+  }
+}
