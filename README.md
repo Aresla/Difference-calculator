@@ -12,3 +12,5 @@ Author: Tatiana Panteleychuk
 https://asciinema.org/a/OWozySSzfNRON3tYQsQt50TSP
 
 https://asciinema.org/a/3BUmjbXjy76TrCAUDtT0U2IPT
+
+https://asciinema.org/a/2Bw95jSakNMCKb1RQ5CrG8OOw

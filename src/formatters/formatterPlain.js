@@ -3,7 +3,7 @@ import isString from '../helpers/isString';
 import complexValue from '../constants/complexValue';
 
 const getPlainForChanged = ({ beforeValue, newValue }, nodeWithPath) => {
-  const returnValue = `Property ${nodeWithPath} was updated. From ${isObject(beforeValue)
+  const returnValue = `Property '${nodeWithPath}' was updated. From ${isObject(beforeValue)
     ? complexValue
     : beforeValue} to ${isObject(newValue)
     ? complexValue
@@ -11,11 +11,12 @@ const getPlainForChanged = ({ beforeValue, newValue }, nodeWithPath) => {
   return returnValue;
 };
 
-const getPlainForRemoved = (key, withPath) => `Property ${withPath} was removed`;
+const getPlainForRemoved = (key, withPath) => `Property '${withPath}' was removed`;
 
 const getPlainForAdded = ({ newValue }, withPath) => (isObject(newValue)
   ? `Property '${withPath}' was added with value: ${complexValue}`
-  : `Property '${withPath}' was added with value: ${isString(newValue) ? `'${newValue}'` : newValue}`);
+  : `Property '${withPath}' was added with value: ${isString(newValue) ? `'${newValue}'`
+    : newValue}`);
 
 const formatterPlain = (ast, pathToNode = []) => {
   const theseKeys = Object.keys(ast);
