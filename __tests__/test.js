@@ -2,17 +2,17 @@
 import fs from 'fs';
 import yaml from 'js-yaml';
 import * as path from 'path';
-import genDiff from './index';
-import buildAST from './buildAST';
-import parsers from './parsers';
-import formatterIni from './formatters/formatterIni';
+import genDiff from '../src';
+import buildAST from '../src/buildAST';
+import parsers from '../src/parsers';
+import formatterIni from '../src/formatters/formatterIni';
 
 test('should 1 be equal 1', () => {
   expect(1).toBe(1);
 });
 
 test('should read and parse JSON file', () => {
-  const pathToFile = './src/__fixtures__/json/after.json';
+  const pathToFile = './__tests__/__fixtures__/json/after.json';
   const file = fs.readFileSync(pathToFile);
   const parsedFile = JSON.parse(file);
   expect(parsedFile).toStrictEqual({
@@ -23,7 +23,7 @@ test('should read and parse JSON file', () => {
 });
 
 test('should read and parse yaml file', () => {
-  const pathToFile = './src/__fixtures__/yaml/after.yaml';
+  const pathToFile = './__tests__/__fixtures__/yaml/after.yaml';
   const file = fs.readFileSync(pathToFile, 'utf8');
   const parsedFile = yaml.safeLoad(file);
   expect(parsedFile).toStrictEqual({
@@ -35,8 +35,8 @@ test('should read and parse yaml file', () => {
 
 
 test('should build AST', () => {
-  const pathBefore = './src/__fixtures__/json/before.json';
-  const pathAfter = './src/__fixtures__/json/after.json';
+  const pathBefore = './__tests__/__fixtures__/json/before.json';
+  const pathAfter = './__tests__/__fixtures__/json/after.json';
   const type = path.extname(pathBefore);
   const fileBefore = fs.readFileSync(pathBefore);
   const fileAfter = fs.readFileSync(pathAfter);
@@ -98,8 +98,8 @@ test('should build AST', () => {
 });
 
 test('should build AST for nested json files', () => {
-  const pathBefore = './src/__fixtures__/json/beforeNestedShort.json';
-  const pathAfter = './src/__fixtures__/json/afterNestedShort.json';
+  const pathBefore = './__tests__/__fixtures__/json/beforeNestedShort.json';
+  const pathAfter = './__tests__/__fixtures__/json/afterNestedShort.json';
   const type = path.extname(pathBefore);
   const fileBefore = fs.readFileSync(pathBefore);
   const fileAfter = fs.readFileSync(pathAfter);
@@ -200,8 +200,8 @@ test('should print AST', () => {
 });
 
 test('should print the difference for json files в формате INI', () => {
-  const pathToBefore = './src/__fixtures__/json/before.json';
-  const pathToAfter = './src/__fixtures__/json/after.json';
+  const pathToBefore = './__tests__/__fixtures__/json/before.json';
+  const pathToAfter = './__tests__/__fixtures__/json/after.json';
   const result = genDiff(pathToBefore, pathToAfter, 'ini');
   const resultString = `{
     host: hexlet.io
@@ -215,8 +215,8 @@ test('should print the difference for json files в формате INI', () => {
 });
 
 test('should print the difference for nested json files в формате INI', () => {
-  const pathToBefore = './src/__fixtures__/json/beforeNestedShort.json';
-  const pathToAfter = './src/__fixtures__/json/afterNestedShort.json';
+  const pathToBefore = './__tests__/__fixtures__/json/beforeNestedShort.json';
+  const pathToAfter = './__tests__/__fixtures__/json/afterNestedShort.json';
   const result = genDiff(pathToBefore, pathToAfter, 'ini');
   const resultString = `{
     common: {
@@ -235,8 +235,8 @@ test('should print the difference for nested json files в формате INI', 
 });
 
 test('should print the difference for yaml files', () => {
-  const pathToBefore = './src/__fixtures__/yaml/before.yaml';
-  const pathToAfter = './src/__fixtures__/yaml/after.yaml';
+  const pathToBefore = './__tests__/__fixtures__/yaml/before.yaml';
+  const pathToAfter = './__tests__/__fixtures__/yaml/after.yaml';
   const result = genDiff(pathToBefore, pathToAfter, 'ini');
   const resultString = `{
     host: hexlet.io
@@ -250,8 +250,8 @@ test('should print the difference for yaml files', () => {
 });
 
 test('should print the difference for nested json files в формате plain', () => {
-  const pathToBefore = './src/__fixtures__/json/beforeNestedShort.json';
-  const pathToAfter = './src/__fixtures__/json/afterNestedShort.json';
+  const pathToBefore = './__tests__/__fixtures__/json/beforeNestedShort.json';
+  const pathToAfter = './__tests__/__fixtures__/json/afterNestedShort.json';
   const result = genDiff(pathToBefore, pathToAfter, 'plain');
   const resultString = `Property 'common.setting6.ops' was added with value: 'vops'
 Property 'common.follow' was added with value: false

@@ -1,10 +1,18 @@
-install:    	install-deps
+install:
+	install-deps
 
 install-deps:
-		npm install
+	npm install
 
 publish:
-		npm publish --dry-run
+	npm publish --dry-run
+
+build:
+	rm -rf dist
+	npm run build
 
 lint:
-		npx eslint .
+	npx eslint .
+
+test:
+	npm test
