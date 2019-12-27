@@ -3,7 +3,7 @@ Author: Tatiana Panteleychuk
 
 ВЫЧИСЛИТЕЛЬ ОТЛИЧИЙ
 
-<a href="https://codeclimate.com/github/Aresla/frontend-project-lvl2/maintainability"><img src="https://api.codeclimate.com/v1/badges/90d9f8118592442d6e4c/maintainability" /></a> [![Build Status](https://travis-ci.org/Aresla/frontend-project-lvl2.svg?branch=master)](https://travis-ci.org/Aresla/frontend-project-lvl2)
+<a href="https://codeclimate.com/github/Aresla/frontend-project-lvl2/maintainability"><img src="https://api.codeclimate.com/v1/badges/90d9f8118592442d6e4c/maintainability" /></a> [![Build Status](https://travis-ci.org/Aresla/frontend-project-lvl2.svg?branch=master)](https://travis-ci.org/Aresla/frontend-project-lvl2) <a href="https://codeclimate.com/github/Aresla/frontend-project-lvl2/test_coverage"><img src="https://api.codeclimate.com/v1/badges/90d9f8118592442d6e4c/test_coverage" /></a>
 
 
 https://asciinema.org/a/3BUmjbXjy76TrCAUDtT0U2IPT
