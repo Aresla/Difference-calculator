@@ -25,7 +25,8 @@
     "commander": "^4.0.1",
     "config-ini-parser": "^1.2.2",
     "ini-parser": "0.0.2",
-    "js-yaml": "^3.13.1"
+    "js-yaml": "^3.13.1",
+    "expect": "latest"
   },
   "devDependencies": {
     "@babel/cli": "^7.7.4",

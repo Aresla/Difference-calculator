@@ -1,5 +1,5 @@
-import * as fs from 'fs';
-import * as path from 'path';
+import fs from 'fs';
+import path from 'path';
 import parsers from './parsers';
 import buildAST from './buildAST';
 import formatterJSON from './formatters/formatterJson';
